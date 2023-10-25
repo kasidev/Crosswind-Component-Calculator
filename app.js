@@ -14,17 +14,20 @@ const reset = document.querySelector('.reset');
 const rwyHeadingBorder = document.querySelector('#rwy-heading');
 const windDirectionBorder = document.querySelector('#wind-direction');
 const windSpeedBorder = document.querySelector('#wind-speed');
+const resiaImg = '@Url.Content("~/images/keep calm resia.svg")'
 
 const regexNum = /^[0-9]*$/;
 
 const images = ['https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcLzIzXC81MDY3MzkyXC9hNGY1MWUxOTgzNGM4ZDQ0Mzc5ZTlmYWJlMGE1ZjgyZS0xNjEwNDQyNDg4LmpwZyJ9:frontify:s7Pj6ojb_o5cNzuUVqE7ipnCzMogsQc9jWlGO0pamf4?width=2400',
     'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcL2E2XC81MDY3NDAxXC8zYmVhMTI5ZjdjYWE5YTVkZmI4NDNlYjU5Nzg0MzAwZS0xNjEwNDQyNDg4LmpwZyJ9:frontify:i3hbUFA4-xKs70V_H2cPy5APUdXacov8928O3bf9OeE?width=2400',
     'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcL2ZmXC81MDY3NTIyXC8yMjU0M2M2NThjNWI2MmJlYTgzYTU0MTExMGM0OTlmNi0xNjEwNDQ1MTE0LmpwZyJ9:frontify:FrpxLbKGIVs_nFl7iAehBfguClrnKOW48l9r-EFqaz8?width=2400',
-    'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcLzlhXC81MDY3NTMxXC9mMTkxYzUwYmFlOWUyZDVjMzdhMjBiZmYxYzA2ZjY3MS0xNjEwNDQ1MTE0LmpwZyJ9:frontify:ygZYsRS2gtwmIEOlZbt5six7M-dgPbTBw6O0jw40aZU?width=2400','https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2018/09/hurricane_florence/17682925-1-eng-GB/Hurricane_Florence.jpg','https://eoimages.gsfc.nasa.gov/images/imagerecords/90000/90931/hurricanes_vir_2017251_lrg.jpg','https://www.dlr.de/de/bilder/2014/1/geared-turbofan-pw1000g_13727/@@images/image-2000-5df4043ed7e163328d4206872f24c509.jpeg']
+    'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcLzlhXC81MDY3NTMxXC9mMTkxYzUwYmFlOWUyZDVjMzdhMjBiZmYxYzA2ZjY3MS0xNjEwNDQ1MTE0LmpwZyJ9:frontify:ygZYsRS2gtwmIEOlZbt5six7M-dgPbTBw6O0jw40aZU?width=2400','https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2018/09/hurricane_florence/17682925-1-eng-GB/Hurricane_Florence.jpg','https://eoimages.gsfc.nasa.gov/images/imagerecords/90000/90931/hurricanes_vir_2017251_lrg.jpg','https://www.dlr.de/de/bilder/2014/1/geared-turbofan-pw1000g_13727/@@images/image-2000-5df4043ed7e163328d4206872f24c509.jpeg','./images/keep calm resia.svg','./images/matrix.jpg','https://cdn.jetphotos.com/full/6/19203_1475764212.jpg','https://cdn.jetphotos.com/full/6/11712_1446328496.jpg','https://cdn.jetphotos.com/full/2/66133_1169678543.jpg','https://cdn.jetphotos.com/full/6/33984_1481325539.jpg','https://cdn.jetphotos.com/full/5/35963_1488797087.jpg','https://cdn.jetphotos.com/full/3/10006_1356441764.jpg','https://cdn.jetphotos.com/full/6/952087_1690807408.jpg','https://cdn.jetphotos.com/full/4/38481_1319567689.jpg','https://cdn.jetphotos.com/full/1/21508_1035884681.jpg','https://cdn.jetphotos.com/full/2/68035_1247943487.jpg','https://cdn.jetphotos.com/full/6/33984_1481325539.jpg','https://cdn.jetphotos.com/full/3/10006_1356441764.jpg']
 
 function randomImage(array) {
     imageIndex = Math.floor(Math.random(array) * images.length);
     body.style.backgroundImage = `url("${images[imageIndex]}")`;
+    //body.style.backgroundImage = `url(./images/matrix.jpg)`;
+    
 }
 
 window.addEventListener('load', () => {
