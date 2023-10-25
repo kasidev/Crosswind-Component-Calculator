@@ -17,11 +17,10 @@ const windSpeedBorder = document.querySelector('#wind-speed');
 
 const regexNum = /^[0-9]*$/;
 
-const images = ['https://i.stack.imgur.com/vkIDc.jpg',
-    'https://4.bp.blogspot.com/-SCgTiXVNcxw/VBfqVNSODYI/AAAAAAABM10/6y3WrER7ERY/s0/Delta%2BAirline%2Bon%2BJFK%2BAirport_Ultra%2BHD.jpg',
-    'https://fthmb.tqn.com/th52YHmUspe0-ukoVQB6JbQ8LgE=/3865x2576/filters:fill(auto,1)/airplane-in-flight-872042016-5ab843e4ff1b780036a353aa.jpg',
-    'http://travelbestway.org/wp-content/uploads/2010/02/air-travel.jpg',
-    'https://i0.wp.com/myedmondsnews.com/wp-content/uploads/2016/04/Flying-Heritage-fighter-plane.jpg']
+const images = ['https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcLzIzXC81MDY3MzkyXC9hNGY1MWUxOTgzNGM4ZDQ0Mzc5ZTlmYWJlMGE1ZjgyZS0xNjEwNDQyNDg4LmpwZyJ9:frontify:s7Pj6ojb_o5cNzuUVqE7ipnCzMogsQc9jWlGO0pamf4?width=2400',
+    'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcL2E2XC81MDY3NDAxXC8zYmVhMTI5ZjdjYWE5YTVkZmI4NDNlYjU5Nzg0MzAwZS0xNjEwNDQyNDg4LmpwZyJ9:frontify:i3hbUFA4-xKs70V_H2cPy5APUdXacov8928O3bf9OeE?width=2400',
+    'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcL2ZmXC81MDY3NTIyXC8yMjU0M2M2NThjNWI2MmJlYTgzYTU0MTExMGM0OTlmNi0xNjEwNDQ1MTE0LmpwZyJ9:frontify:FrpxLbKGIVs_nFl7iAehBfguClrnKOW48l9r-EFqaz8?width=2400',
+    'https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC85MlwvMTY0MTM1XC9wcm9qZWN0c1wvMTk1NzI0XC9hc3NldHNcLzlhXC81MDY3NTMxXC9mMTkxYzUwYmFlOWUyZDVjMzdhMjBiZmYxYzA2ZjY3MS0xNjEwNDQ1MTE0LmpwZyJ9:frontify:ygZYsRS2gtwmIEOlZbt5six7M-dgPbTBw6O0jw40aZU?width=2400','https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2018/09/hurricane_florence/17682925-1-eng-GB/Hurricane_Florence.jpg','https://eoimages.gsfc.nasa.gov/images/imagerecords/90000/90931/hurricanes_vir_2017251_lrg.jpg','https://www.dlr.de/de/bilder/2014/1/geared-turbofan-pw1000g_13727/@@images/image-2000-5df4043ed7e163328d4206872f24c509.jpeg']
 
 function randomImage(array) {
     imageIndex = Math.floor(Math.random(array) * images.length);
@@ -36,9 +35,12 @@ function checkRwyHeading(rwyHeading) {
 
     if (rwyHeading === '' || !rwyHeading.match(regexNum) || rwyHeading > 36 || rwyHeading < 0) {
         rwyHeadingBorder.style.borderBottom = '3px solid #e76f51';
-        rwyHeadingBorder.classList.add('horizontal-shaking');
+        rwyHeadingBorder.classList.toggle('horizontal-shaking');
+        setTimeout(() => {
+            rwyHeadingBorder.classList.toggle('horizontal-shaking'); 
+        }, 2000);
         rwyHeading = 'error';
-        // console.log(`Incorrect Runway Heading is ${rwyHeading}`);
+         console.log(`Incorrect Runway Heading is ${rwyHeading}`);
         return rwyHeading;
     } else {
         rwyHeadingBorder.style.borderBottom = '3px solid #e9c46a';
@@ -51,7 +53,10 @@ function checkRwyHeading(rwyHeading) {
 function checkWindDirection(windDirection) {
     if (windDirection === '' || !windDirection.match(regexNum) || windDirection > 360 || windDirection < 0 || windDirection.length < 3) {
         windDirectionBorder.style.borderBottom = '3px solid #e76f51';
-        windDirectionBorder.classList.add('horizontal-shaking');
+        windDirectionBorder.classList.toggle('horizontal-shaking');
+        setTimeout(() => {
+            windDirectionBorder.classList.toggle('horizontal-shaking'); 
+        }, 2000);
         windDirection = 'error';
         // console.log(`Incorrect Wind Direction is ${windDirection}`);
         return windDirection;
@@ -66,6 +71,9 @@ function checkWindSpeed(windSpeed) {
     if (windSpeed === '' || !windSpeed.match(regexNum) || windSpeed < 0) {
         windSpeedBorder.style.borderBottom = '3px solid #e76f51';
         windSpeedBorder.classList.add('horizontal-shaking');
+        setTimeout(() => {
+            windSpeedBorder.classList.toggle('horizontal-shaking'); 
+        }, 2000);
         windSpeed = 'error';
         // console.log(`Incorrect Wind Speed is: ${windSpeed}`);
         return windSpeed;
@@ -78,11 +86,11 @@ function checkWindSpeed(windSpeed) {
 
 function getAngle(windDirection, rwyHeading) {
     let angle = (windDirection - rwyHeading) % 360;
-
+      
     if (angle >= 180) {
         angle = angle - 360;
     }
-    // console.log(`Angle is ${angle}`)
+     console.log(`Angle is ${angle}`)
     return angle;
 }
 

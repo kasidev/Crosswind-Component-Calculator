@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Lato&display=swap');
 
 :root {
-    --background-color: #264653d8;
+    --background-color: #264653f6;
     --teal: #2a9d8f;
     --yellow: #e9c46a;
     --orange: #f4a261;
@@ -19,9 +19,6 @@ img {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     min-height: 100vh;
